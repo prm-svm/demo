@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.javacodegeeks.testng.maven.TestNgMavenSecondClass" duration-ms="13" started-at="2015-02-27T16:52:05Z" finished-at="2015-02-27T16:52:05Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="13" started-at="2015-02-27T16:52:05Z" finished-at="2015-02-27T16:52:05Z">
+      <class name="com.javacodegeeks.testng.maven.TestNgMavenSecondClass">
+        <test-method status="PASS" signature="oneMoreTest()[pri:0, instance:com.javacodegeeks.testng.maven.TestNgMavenSecondClass@74e551a4]" name="oneMoreTest" duration-ms="5" started-at="2015-02-27T22:22:05Z" finished-at="2015-02-27T22:22:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneMoreTest -->
+      </class> <!-- com.javacodegeeks.testng.maven.TestNgMavenSecondClass -->
+    </test> <!-- Command line test -->
+  </suite> <!-- com.javacodegeeks.testng.maven.TestNgMavenSecondClass -->
+</testng-results>
