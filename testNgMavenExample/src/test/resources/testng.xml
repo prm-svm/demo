@@ -5,7 +5,7 @@
 			<parameter name="param" value="'I am beforeMethod'" />
 
 			<class name="com.javacodegeeks.testng.maven.TestNgMavenExample" />
-			<class name="com.javacodegeeks.testng.maven.TestNgMavenSecondClass" />
+			
 		</classes>
 	</test>
 </suite>
