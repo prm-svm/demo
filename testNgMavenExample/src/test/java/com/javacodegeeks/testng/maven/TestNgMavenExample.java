@@ -68,7 +68,9 @@ public class TestNgMavenExample {
 	@BeforeClass
 	public void beforeClass() {
 		System.out.println("testClass: before class");
-		driver = new ChromeDriver(); 
+		//System.setProperty("webdriver.chrome.driver","<path to Chromedriver .exe>");
+		driver = new FirefoxDriver();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}

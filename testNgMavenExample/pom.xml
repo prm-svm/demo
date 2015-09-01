@@ -4,6 +4,8 @@
 	<groupId>com.javacodegeeks.testng.maven</groupId>
 	<artifactId>testNgMavenExample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -16,11 +18,11 @@
 			<artifactId>selenium-java</artifactId>
 			<version>2.47.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-chrome-driver</artifactId>
-			<version>2.47.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.seleniumhq.selenium</groupId> -->
+<!-- 			<artifactId>selenium-chrome-driver</artifactId> -->
+<!-- 			<version>2.47.1</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 </project>
