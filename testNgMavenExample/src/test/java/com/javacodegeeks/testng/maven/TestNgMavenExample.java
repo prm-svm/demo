@@ -74,7 +74,7 @@ public class TestNgMavenExample {
 	public void beforeClass() throws MalformedURLException {
 		System.out.println("testClass: before class");
 
-		URL hubUrl = new URL("http://localhost:4444/wd/hub");
+		URL hubUrl = new URL("http://172.30.41.195:4444/wd/hub");
 	    DesiredCapabilities capabilities = new DesiredCapabilities();
 	    capabilities.setBrowserName("firefox");
 	    capabilities.setPlatform(Platform.LINUX);
