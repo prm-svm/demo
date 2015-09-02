@@ -1,13 +1,18 @@
 package com.javacodegeeks.testng.maven;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -54,10 +59,10 @@ public class TestNgMavenExample {
 		System.out.println("testClass: static before method");
 	}
 
-	@Parameters({ "param" })
+	
 	@BeforeMethod
-	public void beforeMethodWithParam(String p) {
-		System.out.println("testClass: before method with param " + p);
+	public void beforeMethodWithParam() {
+		System.out.println("testClass: before method with param ");
 	}
 
 	@AfterMethod
@@ -66,10 +71,15 @@ public class TestNgMavenExample {
 	}
 
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass() throws MalformedURLException {
 		System.out.println("testClass: before class");
-		//System.setProperty("webdriver.chrome.driver","<path to Chromedriver .exe>");
-		driver = new FirefoxDriver();
+
+		URL hubUrl = new URL("http://localhost:4444/wd/hub");
+	    DesiredCapabilities capabilities = new DesiredCapabilities();
+	    capabilities.setBrowserName("firefox");
+	    capabilities.setPlatform(Platform.LINUX);
+		
+		driver = new RemoteWebDriver(hubUrl, capabilities);
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
