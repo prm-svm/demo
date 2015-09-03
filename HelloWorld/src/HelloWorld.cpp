@@ -18,5 +18,6 @@ int main() {
 	cout << "It's alive" << endl;
 	cout << "It's moving" << endl;
 	cout << "It's compiling" << endl;
+	sdfdf;
 	return 0;
 }
