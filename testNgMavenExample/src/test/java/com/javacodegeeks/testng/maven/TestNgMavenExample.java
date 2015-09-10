@@ -36,7 +36,7 @@ public class TestNgMavenExample {
 	public void googleQuery() throws InterruptedException {
 		driver.get("http://www.eurotech.com/it/");
 		WebElement searchBox = driver.findElement(By.xpath("//input[@id='ctl00_Header_PB_Menu3_search']"));
-		searchBox.sendKeys("edison");
+		searchBox.sendKeys("kura");
 		 
 			Thread.sleep(5000);
 		 
@@ -47,7 +47,7 @@ public class TestNgMavenExample {
 		WebElement result = driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_ctl01_DataListNews\"]/tbody/tr[2]/td/span[2]/a"));
 		String expectedString = "Eurotech annuncia il rilascio di Everyware Software Framework (ESF) 3.0, l’infrastruttura Java-OSGi per M2M gateway, dispositivi intelligenti e applicazioni IoT";
 		
-		Assert.assertTrue(result.getText().trim().equals(expectedString), "Recieved String is different from expected string");
+		Assert.assertFalse(result.getText().trim().equals(expectedString), "Recieved String is different from expected string");
 		
 		
 		
