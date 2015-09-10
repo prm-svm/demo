@@ -36,7 +36,7 @@ public class TestNgMavenExample {
 	public void googleQuery() throws InterruptedException {
 		driver.get("http://www.eurotech.com/it/");
 		WebElement searchBox = driver.findElement(By.xpath("//input[@id='ctl00_Header_PB_Menu3_search']"));
-		searchBox.sendKeys("kura");
+		searchBox.sendKeys("edison");
 		 
 			Thread.sleep(5000);
 		 
