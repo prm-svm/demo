@@ -53,6 +53,7 @@ public class TestNgMavenExample {
 
 		Assert.assertFalse(result.getText().trim().equals(expectedString),
 				"Recieved String is different from expected string");
+ 
 
 	}
 
@@ -65,7 +66,7 @@ public class TestNgMavenExample {
 	public void beforeMethod() {
 		System.out.println("testClass: before method");
 	}
-	 
+
 	@AfterMethod
 	public void afterMethod() {
 		System.out.println("testClass: after method");
@@ -75,7 +76,7 @@ public class TestNgMavenExample {
 	public void beforeClass() throws MalformedURLException {
 		System.out.println("testClass: before class");
 
-		URL hubUrl = new URL("http://10.73.2.120:4444/wd/hub");
+		URL hubUrl = new URL("http://172.30.41.195:4444/wd/hub");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("firefox");
 		capabilities.setPlatform(Platform.LINUX);
