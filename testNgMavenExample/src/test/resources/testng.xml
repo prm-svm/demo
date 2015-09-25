@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="TestNgMavenExampleSuite" parallel="false">
+	<listeners>
+		<listener class-name="com.javacodegeeks.testng.listeners.TestListener" />
+	</listeners>
 	<test name="TestNgMavenTest">
 		<classes>
 			<parameter name="param" value="'I am beforeMethod'" />
-
 			<class name="com.javacodegeeks.testng.maven.TestNgMavenExample" />
-			
 		</classes>
 	</test>
 </suite>
