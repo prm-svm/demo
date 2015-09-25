@@ -33,7 +33,7 @@ public class TestNgMavenExample {
 	}
 
 	@Test
-	public void googleQuery() throws InterruptedException {
+	public void eurotechKuraSearch() throws InterruptedException {
 		driver.get("http://www.eurotech.com/it/");
 		WebElement searchBox = driver.findElement(By
 				.xpath("//input[@id='ctl00_Header_PB_Menu3_search']"));
