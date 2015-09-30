@@ -60,11 +60,6 @@ public class TestNgMavenExample {
 
 	}
 
-	@Test
-	public void unitLevel2() {
-		System.out.println("testClass: Unit level2 testing");
-	}
-
 	@BeforeMethod
 	public void beforeMethod(Method method) {
 		String methodName = method.getName();
@@ -93,6 +88,8 @@ public class TestNgMavenExample {
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		//Navigate to default home page
+		driver.get("http://www.eurotech.com/");
 	}
 
 	public static WebDriver getDriver() {
