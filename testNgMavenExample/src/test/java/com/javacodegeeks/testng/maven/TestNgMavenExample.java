@@ -33,11 +33,13 @@ public class TestNgMavenExample {
 
 	@BeforeTest
 	public void beforeTest() {
-		System.out.println("testClass: before test");
+		System.out.println("Initiating test");
 	}
 
 	@Test
-	public void eurotechKuraSearch() throws InterruptedException {
+	public void eurotechKuraSearch(Method method) throws InterruptedException {
+		System.out.println("Executing method " + method.getName());
+		
 		driver.get("http://www.eurotech.com/it/");
 		WebElement searchBox = driver.findElement(By
 				.xpath("//input[@id='ctl00_Header_PB_Menu3_search']"));
@@ -62,12 +64,14 @@ public class TestNgMavenExample {
 
 	@BeforeMethod
 	public void beforeMethod(Method method) {
+		System.out.println("Executing before method for " + method.getName());
 		String methodName = method.getName();
 		Util.takeScreenshot("Before_" + methodName, driver);
 	}
 
 	@AfterMethod
 	public void afterMethod(Method method) {
+		System.out.println("Executing after method for " + method.getName());
 		String methodName = method.getName();
 		Util.takeScreenshot("After_" + methodName, driver);
 	}
@@ -99,13 +103,12 @@ public class TestNgMavenExample {
 
 	@AfterClass
 	public void afterClass() {
-		System.out.println("testClass: after class");
 		driver.close();
 		driver.quit();
 	}
 
 	@AfterTest
 	public void afterTest() {
-		System.out.println("testClass: after test");
+		System.out.println("Exiting test");		
 	}
 }

@@ -23,29 +23,7 @@ public class TestListener implements ITestListener {
 	String filePath;
 
 	public TestListener() {
-		// filePath = System.getProperty("user.dir") + "/screenshots";
-		//
-		// DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-		// Date date = new Date();
-		// String dateTime = dateFormat.format(date);
-		//
-		// String buildNumber = System.getenv("BUILD_NUMBER");
-		// String folderName = filePath + "/";
-		// if (buildNumber != null) {
-		// folderName += buildNumber;
-		// } else {
-		// folderName += dateTime;
-		// }
-		//
-		// filePath = folderName + "/";
-		//
-		// try {
-		// Files.createDirectories(Paths.get(folderName));
-		//
-		// } catch (IOException e) {
-		//
-		// e.printStackTrace();
-		// }
+		 
 	}
 
 	WebDriver driver = null;

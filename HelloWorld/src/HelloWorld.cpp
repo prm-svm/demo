@@ -16,8 +16,6 @@ int main() {
 
 	cout << "!!!Hello World!!!" << endl;
 	cout << "It's alive" << endl;
-	cout << "It's moving" << endl;
-	cout << "It's compiling" << endl;
 
 	return 0;
 }
