@@ -17,34 +17,35 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import com.javacodegeeks.testng.maven.TestNgMavenExample;
+import com.javacodegeeks.testng.utils.Util;
 
 public class TestListener implements ITestListener {
 	String filePath;
 
 	public TestListener() {
-		filePath = System.getProperty("user.dir") + "/screenshots";
-
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-		Date date = new Date();
-		String dateTime = dateFormat.format(date);
-
-		String buildNumber = System.getenv("BUILD_NUMBER");
-		String folderName = filePath + "/";
-		if (buildNumber != null) {
-			folderName += buildNumber;
-		} else {
-			folderName += dateTime;
-		}
-
-		filePath = folderName + "/";
-
-		try {
-			Files.createDirectories(Paths.get(folderName));
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
+		// filePath = System.getProperty("user.dir") + "/screenshots";
+		//
+		// DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+		// Date date = new Date();
+		// String dateTime = dateFormat.format(date);
+		//
+		// String buildNumber = System.getenv("BUILD_NUMBER");
+		// String folderName = filePath + "/";
+		// if (buildNumber != null) {
+		// folderName += buildNumber;
+		// } else {
+		// folderName += dateTime;
+		// }
+		//
+		// filePath = folderName + "/";
+		//
+		// try {
+		// Files.createDirectories(Paths.get(folderName));
+		//
+		// } catch (IOException e) {
+		//
+		// e.printStackTrace();
+		// }
 	}
 
 	WebDriver driver = null;
@@ -54,20 +55,10 @@ public class TestListener implements ITestListener {
 		takeScreenShot(methodName);
 	}
 
-	public void takeScreenShot(String methodName) {
+	public void takeScreenShot(String fileName) {
 
 		driver = TestNgMavenExample.getDriver();
-		File scrFile = ((TakesScreenshot) driver)
-				.getScreenshotAs(OutputType.FILE);
-
-		try {
-			String imageLocation = filePath + methodName + ".png";
-			FileUtils.copyFile(scrFile, new File(imageLocation));
-			scrFile.delete();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		Util.takeScreenshot(fileName, driver);
 
 	}
 

@@ -1,5 +1,6 @@
 package com.javacodegeeks.testng.maven;
 
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.javacodegeeks.testng.listeners.TestListener;
+import com.javacodegeeks.testng.utils.Util;
 
 public class TestNgMavenExample {
 
@@ -51,9 +55,8 @@ public class TestNgMavenExample {
 						.xpath("//*[@id=\"ctl00_MainContent_ctl01_DataListNews\"]/tbody/tr[2]/td/span[2]/a"));
 		String expectedString = "Eurotech annuncia il rilascio di Everyware Software Framework (ESF) 3.0, l’infrastruttura Java-OSGi per M2M gateway, dispositivi intelligenti e applicazioni IoT";
 
-		Assert.assertFalse(result.getText().trim().equals(expectedString),
+		Assert.assertTrue(result.getText().trim().equals(expectedString),
 				"Recieved String is different from expected string");
- 
 
 	}
 
@@ -63,20 +66,25 @@ public class TestNgMavenExample {
 	}
 
 	@BeforeMethod
-	public void beforeMethod() {
-		System.out.println("testClass: before method");
+	public void beforeMethod(Method method) {
+		String methodName = method.getName();
+		Util.takeScreenshot("Before_" + methodName, driver);
 	}
 
 	@AfterMethod
-	public void afterMethod() {
-		System.out.println("testClass: after method");
+	public void afterMethod(Method method) {
+		String methodName = method.getName();
+		Util.takeScreenshot("Before_" + methodName, driver);
 	}
 
 	@BeforeClass
 	public void beforeClass() throws MalformedURLException {
-		System.out.println("testClass: before class");
-
-		URL hubUrl = new URL("http://10.73.2.140:4444/wd/hub");
+		String gridIP = System.getenv("GRID_IP");
+		if (gridIP == null) {
+			gridIP = "localhost";
+		}
+		System.out.println(gridIP);
+		URL hubUrl = new URL("http://" + gridIP + ":4444/wd/hub");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("firefox");
 		capabilities.setPlatform(Platform.LINUX);
