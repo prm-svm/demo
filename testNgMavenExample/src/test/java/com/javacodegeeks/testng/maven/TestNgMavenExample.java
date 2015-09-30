@@ -74,7 +74,7 @@ public class TestNgMavenExample {
 	@AfterMethod
 	public void afterMethod(Method method) {
 		String methodName = method.getName();
-		Util.takeScreenshot("Before_" + methodName, driver);
+		Util.takeScreenshot("After_" + methodName, driver);
 	}
 
 	@BeforeClass
